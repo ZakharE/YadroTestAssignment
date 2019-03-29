@@ -16,26 +16,24 @@ def sieve_of_eratosthenes(n):
     try:
         if n <= 0 or isinstance(n, float):
             raise TypeError("Please insert Integer value!")
-        prime = [True for i in range(n + 1)]
+        primes = [True for i in range(n + 1)]
         p = 2
         while p * p <= n:
 
-            if prime[p]:
+            if primes[p]:
 
                 for i in range(p * p, n + 1, p):
-                    prime[i] = False
+                    primes[i] = False
             p += 1
-        count_prime_numbers = 0
         for p in range(2, n):
-            if prime[p]:
+            if primes[p]:
                 print(p, )
-                ++count_prime_numbers
     except TypeError:
         print("Please, insert positive integer number!")
 
 
 if __name__ == '__main__':
-    n = -1.123123
-    print("Following are the prime numbers smaller than or equal to", n)
+    n = 3
+    print("Prime numbers before ", n, " are: ")
 
     (sieve_of_eratosthenes(n))
